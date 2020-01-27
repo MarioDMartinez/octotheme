@@ -1,0 +1,109 @@
+<header class="header" role="banner">
+	<div class="header-top">
+		<div class="container">
+			{{ page.header_top }}
+		</div>
+	</div>
+
+	<div class="header-nav container">
+		{{ page.header}}
+		{{ page.primary_menu }}
+	</div>
+</header>
+
+
+<main role="main" class="main">
+	<div class="layout-content">
+
+		{{ page.title_bar }}
+		{{ page.highlighted }}
+		{{ page.before_content }}
+
+		<div id="content" class="content full">
+			<div class="container">
+				<div class="row">
+
+					{% if page.sidebar_first %}
+						<aside class="layout-sidebar-first" role="complementary">
+							<div class="col-md-3">
+								{{ page.sidebar_first }}
+							</div>
+						</aside>
+					{% endif %}
+
+					{% if page.sidebar_second and page.sidebar_first %}
+						{% set col_class = 'col-md-6' %}
+					{% elseif page.sidebar_second or page.sidebar_first %}
+						{% set col_class = 'col-md-9' %}
+					{% else %}
+						{% set col_class = 'col-md-12' %}
+					{% endif %}
+
+					<div class="{{ col_class }}">
+						{{ page.content }}
+					</div>
+
+					{% if page.sidebar_second %}
+						<aside class="layout-sidebar-second" role="complementary">
+							<div class="col-md-3">
+								{{ page.sidebar_second }}
+							</div>
+						</aside>
+					{% endif %}
+
+				</div>
+			</div>
+		</div>
+
+		{{ page.after_content }}
+
+	</div>
+</main>
+
+
+
+<footer id="footer" role="contentinfo">
+	<div class="container main-footer">
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Newsletter</h2>
+				<p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
+				<form id="newsletterForm" action="" method="POST" novalidate="novalidate">
+					<div class="input-group">
+						<input class="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
+						<span class="input-group-btn"><button class="btn btn-default" type="submit">Go!</button></span>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4">
+				<h2>About Us</h2>
+				<p>Nulla nunc dui, tristique in semper vel, congue sed ligula. Nam dolor ligula, faucibus id sodales in, auctor fringilla libero. Nulla nunc dui, tristique in semper vel. Nam dolor ligula, faucibus id sodales in, auctor fringilla libero.</p>
+			</div>
+			<div class="col-md-4">
+				<h2>Contact Us</h2>
+				<ul class="contact">
+					<li><i class="fa fa-map-marker"></i><strong>Address:</strong> 1234 Street Name, City Name, United States</li>
+					<li><i class="fa fa-phone"></i> <strong>Phone:</strong> (123) 456-7890</li>
+					<li><i class="fa fa-envelope"></i> <strong>Email:</strong><a href="mailto:mail@example.com">mail@example.com</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<p>All Rights Reserved © Octo | Designed &amp; Developed By Chaz Chumley</p>
+				</div>
+				<div class="col-md-4">
+					<ul class="social-icons">
+						<li><a class="button--icon" target="_blank" href="https://www.facebook.com/PacktPub" title=""><i class="fa fa-facebook"></i></a></li>
+						<li><a class="button--icon" target="_blank" href="https://www.linkedin.com/company/packt-publishing" title=""><i class="fa fa-linkedin"></i></a></li>
+						<li><a class="button--icon" target="_blank" href="https://twitter.com/packtpub" title=""><i class="fa fa-twitter"></i></a></li>
+						<li><a class="button--icon" target="_blank" href="https://plus.google.com/+packtpublishing/posts" title=""><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
